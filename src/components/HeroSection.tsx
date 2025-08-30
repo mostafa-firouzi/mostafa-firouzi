@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+import Photo3D from "@/components/Photo3D";
 
 const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -25,6 +26,11 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <div className="space-y-8 animate-in fade-in duration-1000">
+          {/* 3D Photo */}
+          <div className="mb-8">
+            <Photo3D />
+          </div>
+
           {/* Name and Title */}
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">

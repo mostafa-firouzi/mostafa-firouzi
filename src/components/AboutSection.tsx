@@ -26,7 +26,7 @@ const AboutSection = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">Person</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Motivierter Quereinsteiger mit Leidenschaft für Technologie und 
+                  Motivierter IT-Interessent mit Leidenschaft für Technologie und 
                   kontinuierliches Lernen. Ich bringe frische Perspektiven und 
                   hohe Lernbereitschaft mit.
                 </p>
@@ -43,9 +43,9 @@ const AboutSection = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">Ausbildung</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Aktuell in einer einjährigen Umschulung zum Fachinformatiker 
-                  für Anwendungsentwicklung. Fokus auf moderne 
-                  Programmiersprachen und Entwicklungsmethoden.
+                  Aktuell in einer zweijährigen Umschulung zum Fachinformatiker 
+                  für Anwendungsentwicklung. Ab 18.05.2026 suche ich einen 
+                  Praktikumsplatz für das 2. Ausbildungsjahr.
                 </p>
               </div>
             </CardContent>
@@ -75,9 +75,9 @@ const AboutSection = () => {
             <CardContent className="p-10">
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p className="text-lg leading-relaxed mb-6">
-                  Als Quereinsteiger in die IT-Welt bringe ich eine einzigartige Kombination aus 
+                  Als angehender IT-Fachkraft bringe ich eine einzigartige Kombination aus 
                   frischer Motivation und bereits vorhandenen technischen Grundkenntnissen mit. 
-                  Meine Umschulung zum Fachinformatiker für Anwendungsentwicklung ermöglicht es mir, 
+                  Meine zweijährige Umschulung zum Fachinformatiker für Anwendungsentwicklung ermöglicht es mir, 
                   strukturiert und praxisorientiert die notwendigen Fähigkeiten zu erwerben.
                 </p>
                 <p className="text-lg leading-relaxed mb-6">
