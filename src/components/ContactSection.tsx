@@ -1,30 +1,34 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Github, Linkedin, Download, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import flyer1 from "@/assets/images/flyer1.jpg";
+import flyer2 from "@/assets/images/flyer2.jpg";
 
 const ContactSection = () => {
+  const [showFlyer, setShowFlyer] = useState(false);
   const contactItems = [
     {
       icon: Mail,
       label: "E-Mail",
       value: "mostafa.firouzi@icloud.com",
       href: "mailto:mostafa.firouzi@icloud.com",
-      description: "Für direkte Kommunikation"
+      description: "Für direkte Kommunikation",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Mostafa-firouzi",
       href: "https://linkedin.com/in/Mostafa-firouzi",
-      description: "Professionelles Netzwerk"
+      description: "Professionelles Netzwerk",
     },
     {
       icon: Github,
       label: "GitHub",
       value: "Mostafa-Firouzi",
       href: "https://github.com/Mostafa-Firouzi",
-      description: "Code-Projekte & Portfolio"
-    }
+      description: "Code-Projekte & Portfolio",
+    },
   ];
 
   return (
@@ -33,36 +37,42 @@ const ContactSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-primary bg-clip-text text-transparent">Kontakt</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Kontakt
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Lassen Sie uns über Möglichkeiten sprechen. Ich freue mich auf Ihr Feedback 
-            und neue Herausforderungen in der Anwendungsentwicklung.
+            Lassen Sie uns über Möglichkeiten sprechen. Ich freue mich auf Ihr
+            Feedback und neue Herausforderungen in der Anwendungsentwicklung.
           </p>
         </div>
 
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {contactItems.map((item, index) => (
-            <Card 
+            <Card
               key={item.label}
               className="group hover:shadow-glow transition-all duration-500 hover:scale-105 bg-card/50 backdrop-blur-sm border-border/50"
               style={{
-                animationDelay: `${index * 0.1}s`
+                animationDelay: `${index * 0.1}s`,
               }}
             >
               <CardContent className="p-6">
-                <a 
+                <a
                   href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    item.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="flex flex-col items-center text-center space-y-4 hover:text-primary transition-colors"
                 >
                   {/* Icon */}
                   <div className="p-4 rounded-full bg-secondary/30 group-hover:bg-secondary/50 transition-colors">
                     <item.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  
+
                   {/* Content */}
                   <div>
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -77,7 +87,7 @@ const ContactSection = () => {
                   </div>
 
                   {/* External Link Indicator */}
-                  {item.href.startsWith('http') && (
+                  {item.href.startsWith("http") && (
                     <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   )}
                 </a>
@@ -94,30 +104,53 @@ const ContactSection = () => {
                 Bereit für den nächsten Schritt?
               </h3>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                Ich bin offen für neue Möglichkeiten und freue mich darauf, meine 
-                Leidenschaft für die Anwendungsentwicklung in Ihrem Team einzubringen.
+                Ich bin offen für neue Möglichkeiten und freue mich darauf,
+                meine Leidenschaft für die Anwendungsentwicklung in Ihrem Team
+                einzubringen.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  variant="gradient" 
+                <Button
+                  variant="gradient"
                   size="lg"
-                  onClick={() => window.location.href = 'mailto:mostafa.firouzi@icloud.com'}
+                  onClick={() =>
+                    (window.location.href = "mailto:mostafa.firouzi@icloud.com")
+                  }
                   className="group"
                 >
                   <Mail className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-                  E-Mail schreiben
+                  Praktikumanfrage senden
                 </Button>
-                
-                <Button 
-                  variant="hero" 
+
+                <Button
+                  variant="hero"
                   size="lg"
-                  onClick={() => window.open('https://linkedin.com/in/Mostafa-firouzi', '_blank')}
+                  onClick={() => setShowFlyer(true)}
                   className="group"
                 >
-                  <Linkedin className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                  LinkedIn besuchen
+                  Flyer ansehen
                 </Button>
+
+                {/* Modal (Popup) für Flyer – erscheint nur, wenn showFlyer true ist */}
+                {showFlyer && (
+                  <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                    <div className="bg-white p-6 rounded-2xl max-w-3xl max-h-[90vh] overflow-y-auto">
+                      <button
+                        onClick={() => setShowFlyer(false)}
+                        className="mb-4 ml-auto block text-red-500 font-bold"
+                      >
+                        ✕ Schließen
+                      </button>
+
+                      <img
+                        src={flyer1}
+                        alt="Flyer 1"
+                        className="mb-4 rounded-lg"
+                      />
+                      <img src={flyer2} alt="Flyer 2" className="rounded-lg" />
+                    </div>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -126,7 +159,7 @@ const ContactSection = () => {
         {/* Footer Note */}
         <div className="mt-16 text-center">
           <p className="text-sm text-muted-foreground">
-            Diese Website wurde mit React, TypeScript und Tailwind CSS erstellt.
+            © 2025 Mostafa Firouzi – Mit ❤️ und zu viel Kaffee erstellt ☕.
           </p>
         </div>
       </div>
